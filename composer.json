@@ -1,0 +1,18 @@
+{
+    "name": "j3dyy/sms-office-api",
+    "description": "smsoffice.ge api layer",
+    "autoload": {
+        "psr-4": {
+            "J3dyy\\SmsOfficeApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "j3dyy",
+            "email": "mr.nizharadze@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
