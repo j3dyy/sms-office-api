@@ -67,7 +67,7 @@ class Request
     /**
      * @param string $response
      */
-    public function decodeResponse(string $response){
+    public function decodeResponse(string|int $response){
         $decoded = json_decode($response);
 
         $this->response = Response::of($decoded);
@@ -76,7 +76,9 @@ class Request
     private function executeRequest(){
         try {
             $res = $this->client->get($this->url);
-            return new Response(true,'',$res->getBody()->getContents());
+            $this->decodeResponse($res->getBody()->getContents());
+
+            return $this->response;
         }catch (ClientException | ConnectException $e){
             return new Response(false,$e->getMessage(),null,$e->getCode());
         }
