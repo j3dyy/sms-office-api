@@ -1,0 +1,1 @@
+{"version":1,"defects":{"SmsClientTest::testNumberValidation":3,"SmsClientTest::testNumberValicationException":3},"times":{"SmsClientTest::testNumberValidation":0.025,"SmsClientTest::testValidationException":0.011,"SmsClientTest::testConfigurationException":0.007,"SmsClientTest::testNumberValicationException":0.007}}

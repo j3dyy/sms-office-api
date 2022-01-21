@@ -25,13 +25,17 @@ class SmsClient
     private function __construct()
     {
         $this->officeQueryBuilder = new OfficeQueryBuilder();
+        $this->officeQueryBuilder->add('sender', Config::instance()->get('sender'));
     }
 
 
+    /**
+     * @throws Exceptions\ConfigurationException
+     */
     public static function instance(): SmsClient{
         if (self::$_instance == null){
-            Config::isBasicsDefined();
             self::$_instance = new static();
+            Config::isBasicsDefined();
         }
         return self::$_instance;
     }

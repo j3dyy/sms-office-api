@@ -23,18 +23,23 @@ class Config
     }
 
     public static function endpoint(string $value){
-        self::$_instance->define('endpoint',$value);
+        self::instance()->define('endpoint',$value);
         return self::$_instance;
     }
 
     public static function apiKey(string $apiKey){
-        self::$_instance->define('apiKey',$apiKey);
+        self::instance()->define('apiKey',$apiKey);
+        return self::$_instance;
+    }
+
+    public static function sender(string $sender){
+        self::instance()->define('sender',$sender);
         return self::$_instance;
     }
 
 
     public static function isBasicsDefined(){
-        if (self::$_instance->get('apiKey') == null){
+        if (self::instance()->get('apiKey') == null){
             throw new ConfigurationException("apiKey not configured example of config: Config::instance()->apiKey('your_api_key')");
         }
     }
